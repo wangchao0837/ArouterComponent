@@ -1,4 +1,7 @@
 
+# ArouterComponent
+Arouter基于官方demo的简单示例基础上实现组件化
+
 [中文文档](https://github.com/alibaba/ARouter/blob/master/README_CN.md)
 
 ##### [![Join the chat at https://gitter.im/alibaba/ARouter](https://badges.gitter.im/alibaba/ARouter.svg)](https://gitter.im/alibaba/ARouter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](https://www.apache.org/licenses/LICENSE-2.0)
@@ -520,6 +523,5 @@ version|[![Download](https://api.bintray.com/packages/zhi1ong/maven/arouter-api/
         
         ![qq](https://raw.githubusercontent.com/alibaba/ARouter/master/demo/qq-group-2.png)
 =======
-# ArouterComponent
-Arouter简单示例和实现组件化
->>>>>>> fe396d450e83ccceaba3f964dc4a865c18e182bb
+
+
