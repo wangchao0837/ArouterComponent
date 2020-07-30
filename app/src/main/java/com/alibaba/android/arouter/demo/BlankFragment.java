@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.demo.testinject.TestObj;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,7 +33,10 @@ public class BlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ARouter.getInstance().inject(this);
         TextView textView = new TextView(getActivity());
+        textView.setBackgroundColor(getResources().getColor(R.color.red));
+        textView.setText("name:" + name + ",obj:" + obj.toString());
         return textView;
     }
 

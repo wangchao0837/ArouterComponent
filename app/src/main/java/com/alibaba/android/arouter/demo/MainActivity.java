@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -206,7 +207,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .navigation(this, 666);
                 break;
             case R.id.getFragment:
-                Fragment fragment = (Fragment) ARouter.getInstance().build("/test/fragment").navigation();
+                Fragment fragment = (Fragment) ARouter.getInstance()
+                        .build("/test/fragment")
+                        .withString("name","wangchao")
+                        .withObject("obj",new TestObj("age",18))
+                        .navigation();
+
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.ll_layout,fragment);
+                fragmentTransaction.commit();
+
                 Toast.makeText(this, "找到Fragment:" + fragment.toString(), Toast.LENGTH_SHORT).show();
                 break;
             default:
