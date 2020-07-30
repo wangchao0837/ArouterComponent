@@ -1,0 +1,69 @@
+if (isModuleJava){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
+
+dependencies {
+//    annotationProcessor project(':arouter-compiler')
+    implementation "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
+    implementation project(':base')
+    annotationProcessor project(':arouter-compiler')
+
+    if(!isModulekotlin&&isModuleJava){
+        implementation project(':module-kotlin')
+    }
+}
+android {
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILDTOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+            }
+        }
+
+        //添加一条 boolean类型的变量
+        buildConfigField("boolean","isModule",String.valueOf(isModuleJava))
+
+        //组件模式下
+        if (isModuleJava){
+            applicationId appId['javaModule']
+        }
+
+        //资源配置
+        sourceSets{
+            main{
+                //在组件模式下 使用不同的manifest文件
+                if(isModuleJava){
+                    manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                    java.srcDirs 'src/main/module/java','src/main/java'
+                }else{
+                    manifest.srcFile 'src/main/AndroidManifest.xml'
+                }
+            }
+        }
+
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        lintOptions { abortOnError false }
+    }
+}

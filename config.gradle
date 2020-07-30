@@ -1,0 +1,15 @@
+ext {
+    // false: 组件模式
+    // true ：集成模式
+    isModule = false
+    isModuleJava = true
+    isModulekotlin = false
+
+    appId = ["app"  : "com.alibaba.android.arouter.demo",
+             "kotlinModule": "com.alibaba.android.arouter.demo.kotlin",
+             "javaModlue" : "com.alibaba.android.arouter.demo.module1" ]
+
+
+}
+
+
