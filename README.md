@@ -1,6 +1,3 @@
-```
-    A framework for assisting in the renovation of Android app componentization
-```
 
 [中文文档](https://github.com/alibaba/ARouter/blob/master/README_CN.md)
 
@@ -522,3 +519,7 @@ version|[![Download](https://api.bintray.com/packages/zhi1ong/maven/arouter-api/
     3. QQ group2
         
         ![qq](https://raw.githubusercontent.com/alibaba/ARouter/master/demo/qq-group-2.png)
+=======
+# ArouterComponent
+Arouter简单示例和实现组件化
+>>>>>>> fe396d450e83ccceaba3f964dc4a865c18e182bb
